@@ -1,11 +1,11 @@
 {
 	"schemaVersion": 1,
-	"id": "examplemod",
+	"id": "betterwithfurniture",
 	"version": "${version}",
-	"name": "Example Mod",
-	"description": "This mod aims to help new BTA modders.",
+	"name": "Better With Furniture",
+	"description": "This mod adds vanilla style furniture to BTA!.",
 	"authors": [
-		"Turnip Labs"
+		"Variant Tombstones"
 	],
 	"contact": {
 		"homepage": "",
@@ -16,11 +16,11 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"turniplabs.examplemod.ExampleMod"
+			"varianttombstones.betterwithfurniture.BetterWithFurniture"
 		]
 	},
 	"mixins": [
-		"examplemod.mixins.json"
+		"betterwithfurniture.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=${fabricloader}",
