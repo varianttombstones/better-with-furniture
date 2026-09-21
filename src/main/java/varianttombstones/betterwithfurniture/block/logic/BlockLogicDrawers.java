@@ -4,6 +4,7 @@ import java.util.Objects;
 
 import org.jetbrains.annotations.Nullable;
 
+import net.minecraft.client.render.block.model.generic.BlockModelGenericFurnace;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogicRotatable;
 import net.minecraft.core.block.material.Material;

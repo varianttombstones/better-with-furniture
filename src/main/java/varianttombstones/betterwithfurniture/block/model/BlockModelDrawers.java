@@ -1,12 +1,11 @@
 package varianttombstones.betterwithfurniture.block.model;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.block.model.BlockModelDispatcher;
 import net.minecraft.client.render.block.model.generic.BlockModelGeneric;
-import net.minecraft.client.render.block.model.generic.BlockModelGenericRotatable;
 import net.minecraft.client.render.tessellator.TessellatorGeneral;
 import net.minecraft.client.render.texture.stitcher.IconCoordinate;
 import net.minecraft.core.block.Block;
@@ -16,9 +15,9 @@ import net.minecraft.core.world.WorldSource;
 import net.minecraft.core.world.pos.TilePosc;
 
 @Environment(EnvType.CLIENT)
-public class BlockModelChair<T extends BlockLogic> extends BlockModelGenericRotatable<T> {
-   public BlockModelChair(Block<T> block) {
-      super(block, BlockModelDispatcher.loadDataModel("betterwithfurniture:block/chair"));
+public class BlockModelDrawers<T extends BlockLogic> extends BlockModelGeneric<T> {
+   public BlockModelDrawers(Block<T> block) {
+      super(block, BlockModelDispatcher.loadDataModel("betterwithfurniture:block/drawers"));
    }
 
    public boolean renderAttached(TessellatorGeneral tessellator, WorldSource worldSource, TilePosc tilePos, boolean cullFaces, @Nullable IconCoordinate overrideTexture) {

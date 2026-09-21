@@ -2,6 +2,7 @@ package varianttombstones.betterwithfurniture.block;
 
 import net.minecraft.client.render.block.model.BlockModelDispatcher;
 import net.minecraft.client.render.block.model.BlockModelRotatable;
+import net.minecraft.client.render.block.model.BlockModelStandard;
 import net.minecraft.core.util.helper.Side;
 import varianttombstones.betterwithfurniture.block.model.BlockModelChair;
 
