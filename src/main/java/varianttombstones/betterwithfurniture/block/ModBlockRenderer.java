@@ -11,12 +11,12 @@ public class ModBlockRenderer {
         dispatcher.addDispatch(new BlockModelChair<>(ModBlocks.CHAIR_BLOCK));
 
         dispatcher.addDispatch(new BlockModelRotatable<>(ModBlocks.CHEST_OF_DRAWERS_BLOCK)
-        .setTex("betterwithfurniture:block/dresser_front", Side.EAST)
-        .setTex("minecraft:block/planks/oak", Side.TOP)
-        .setTex("minecraft:block/log/oak_side", Side.NORTH)
-        .setTex("minecraft:block/log/oak_side", Side.SOUTH)
+        .setTex("betterwithfurniture:block/dresser_front", Side.TOP)
+        .setTex("minecraft:block/planks/oak", Side.NORTH)
+        .setTex("minecraft:block/log/oak_side", Side.EAST)
+        .setTex("minecraft:block/log/oak_side", Side.BOTTOM)
         .setTex("minecraft:block/log/oak_side", Side.WEST)
-        .setTex("minecraft:block/planks/oak", Side.BOTTOM)
+        .setTex("minecraft:block/planks/oak", Side.SOUTH)
         );
     }
 }

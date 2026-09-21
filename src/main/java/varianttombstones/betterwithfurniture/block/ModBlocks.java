@@ -1,7 +1,6 @@
 package varianttombstones.betterwithfurniture.block;
 
 import net.minecraft.core.block.Block;
-import net.minecraft.core.block.BlockLogicChest;
 import net.minecraft.core.block.material.Materials;
 import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.sound.BlockSounds;
@@ -10,6 +9,7 @@ import turniplabs.halplibe.helper.creativeInventory.CreativeInventoryCategory;
 import turniplabs.halplibe.helper.creativeInventory.CreativeInventoryPlacement;
 import varianttombstones.betterwithfurniture.BetterWithFurniture;
 import varianttombstones.betterwithfurniture.block.logic.BlockLogicChair;
+import varianttombstones.betterwithfurniture.block.logic.BlockLogicDrawers;
 
 public class ModBlocks {
     private static int BLOCK_ID = 2344;
@@ -33,7 +33,7 @@ public class ModBlocks {
             .setBlockSound(BlockSounds.WOOD)
             .setTags(BlockTags.MINEABLE_BY_AXE)
             .setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.STORAGE))
-            .build("drawers", newBlockID(), b -> new BlockLogicChest(b, Materials.WOOD));
+            .build("drawers", newBlockID(), b -> new BlockLogicDrawers(b, Materials.WOOD));
     }
     
     public static int newBlockID() {

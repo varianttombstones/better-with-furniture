@@ -6,8 +6,6 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.block.model.BlockModelDispatcher;
 import net.minecraft.client.render.block.model.generic.BlockModelGeneric;
-import net.minecraft.client.render.block.model.generic.BlockModelGenericAxis;
-import net.minecraft.client.render.block.model.generic.BlockModelGenericRotatable;
 import net.minecraft.client.render.tessellator.TessellatorGeneral;
 import net.minecraft.client.render.texture.stitcher.IconCoordinate;
 import net.minecraft.core.block.Block;
@@ -17,7 +15,7 @@ import net.minecraft.core.world.WorldSource;
 import net.minecraft.core.world.pos.TilePosc;
 
 @Environment(EnvType.CLIENT)
-public class BlockModelChair<T extends BlockLogic> extends BlockModelGenericRotatable<T> {
+public class BlockModelChair<T extends BlockLogic> extends BlockModelGeneric<T> {
    public BlockModelChair(Block<T> block) {
       super(block, BlockModelDispatcher.loadDataModel("betterwithfurniture:block/chair"));
    }
