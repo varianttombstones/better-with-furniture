@@ -3,8 +3,6 @@ package varianttombstones.betterwithfurniture.block.tileentity;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import com.mojang.logging.CategorizedLogger;
-import com.mojang.logging.LogUtils;
 import com.mojang.nbt.tags.CompoundTag;
 import com.mojang.nbt.tags.ListTag;
 

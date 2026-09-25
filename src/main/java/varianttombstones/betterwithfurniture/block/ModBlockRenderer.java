@@ -5,6 +5,7 @@ import net.minecraft.client.render.block.model.BlockModelRotatable;
 import net.minecraft.client.render.block.model.BlockModelStandard;
 import net.minecraft.core.util.helper.Side;
 import varianttombstones.betterwithfurniture.block.model.BlockModelChair;
+import varianttombstones.betterwithfurniture.block.model.BlockModelTable;
 
 public class ModBlockRenderer {
     public static void RegisterRenderers(BlockModelDispatcher dispatcher)
@@ -19,5 +20,7 @@ public class ModBlockRenderer {
         .setTex("minecraft:block/log/oak_side", Side.WEST)
         .setTex("minecraft:block/planks/oak", Side.SOUTH)
         );
+
+        dispatcher.addDispatch(new BlockModelTable<>(ModBlocks.WOOD_TABLE_BLOCK));
     }
 }
