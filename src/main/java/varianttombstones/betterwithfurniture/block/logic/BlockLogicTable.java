@@ -22,11 +22,18 @@ public class BlockLogicTable extends BlockLogicRotatable {
     public BlockLogicTable(Block<?> block) {
       super(block, Materials.WOOD);
       this.setBlockBounds((double)0.0F, (double)0.0F, (double)0.0F, (double)1.0F, (double)0.5625F, (double)1.0F);
-      block.withEntity(() -> new TileEntitySeat(block));
    }
 
    // TODO: CHANGE THIS TO THE ITEM FOR THE TABLE
    public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int data, TileEntity tileEntity) {
       return dropCause != EnumDropCause.IMPROPER_TOOL ? new ItemStack[]{new ItemStack(Items.SEAT)} : null;
+   }
+
+   public boolean isCubeShaped() {
+      return false;
+   }
+
+   public boolean isSolidRender() {
+      return false;
    }
 }

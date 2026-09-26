@@ -22,6 +22,7 @@ public class ModBlocks {
     public static Block<?> CHAIR_BLOCK;
     public static Block<?> CHEST_OF_DRAWERS_BLOCK;
     public static Block<?> WOOD_TABLE_BLOCK;
+    public static Block<?> COFFEE_TABLE_BLOCK;
 
     public static void InitBlocks()
     {
@@ -50,6 +51,14 @@ public class ModBlocks {
             .setTags(BlockTags.MINEABLE_BY_AXE)
             .setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.PLACEABLES))
             .build("wood_table", newBlockID(), b -> new BlockLogicTable(b));
+
+        COFFEE_TABLE_BLOCK = new BlockBuilder(BetterWithFurniture.MOD_ID)
+            .setResistance(2.0f)
+            .setHardness(.2f)
+            .setBlockSound(BlockSounds.WOOD)
+            .setTags(BlockTags.MINEABLE_BY_AXE)
+            .setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.PLACEABLES))
+            .build("coffee_table", newBlockID(), b -> new BlockLogicTable(b));
     }
     
     public static int newBlockID() {

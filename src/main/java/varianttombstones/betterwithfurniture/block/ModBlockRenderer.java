@@ -2,7 +2,7 @@ package varianttombstones.betterwithfurniture.block;
 
 import net.minecraft.client.render.block.model.BlockModelDispatcher;
 import net.minecraft.client.render.block.model.BlockModelRotatable;
-import net.minecraft.client.render.block.model.BlockModelStandard;
+import net.minecraft.client.render.block.model.generic.BlockModelGenericRotatable;
 import net.minecraft.core.util.helper.Side;
 import varianttombstones.betterwithfurniture.block.model.BlockModelChair;
 import varianttombstones.betterwithfurniture.block.model.BlockModelTable;
@@ -21,6 +21,7 @@ public class ModBlockRenderer {
         .setTex("minecraft:block/planks/oak", Side.SOUTH)
         );
 
-        dispatcher.addDispatch(new BlockModelTable<>(ModBlocks.WOOD_TABLE_BLOCK));
+        dispatcher.addDispatch(new BlockModelGenericRotatable<>(ModBlocks.WOOD_TABLE_BLOCK, BlockModelDispatcher.loadDataModel("betterwithfurniture:block/table")));
+        dispatcher.addDispatch(new BlockModelGenericRotatable<>(ModBlocks.COFFEE_TABLE_BLOCK, BlockModelDispatcher.loadDataModel("betterwithfurniture:block/coffee_table")));
     }
 }
