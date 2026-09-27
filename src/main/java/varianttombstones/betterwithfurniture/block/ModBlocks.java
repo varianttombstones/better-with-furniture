@@ -3,6 +3,7 @@ package varianttombstones.betterwithfurniture.block;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogic;
 import net.minecraft.core.block.BlockLogicLayerSnow;
+import net.minecraft.core.block.BlockLogicRotatable;
 import net.minecraft.core.block.BlockLogicWool;
 import net.minecraft.core.block.entity.TileEntityDispatcher;
 import net.minecraft.core.block.material.Materials;
@@ -28,6 +29,7 @@ public class ModBlocks {
     public static Block<?> WOOD_TABLE_BLOCK;
     public static Block<?> COFFEE_TABLE_BLOCK;
     public static Block<?> CARPET_BLOCK;
+    public static Block<?> TRASH_CAN_BLOCK;
 
     public static void InitBlocks()
     {
@@ -55,7 +57,7 @@ public class ModBlocks {
             .setBlockSound(BlockSounds.WOOD)
             .setTags(BlockTags.MINEABLE_BY_AXE)
             .setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.PLACEABLES))
-            .build("woodtable", newBlockID(), b -> new BlockLogicTable(b));
+            .build("woodtable", newBlockID(), b -> new BlockLogicTable(b, false));
 
         COFFEE_TABLE_BLOCK = new BlockBuilder(BetterWithFurniture.MOD_ID)
             .setResistance(2.0f)
@@ -63,7 +65,7 @@ public class ModBlocks {
             .setBlockSound(BlockSounds.WOOD)
             .setTags(BlockTags.MINEABLE_BY_AXE)
             .setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.PLACEABLES))
-            .build("coffeetable", newBlockID(), b -> new BlockLogicTable(b));
+            .build("coffeetable", newBlockID(), b -> new BlockLogicTable(b, true));
         
         CARPET_BLOCK = new BlockBuilder(BetterWithFurniture.MOD_ID)
             .setResistance(0.5f)
@@ -71,6 +73,13 @@ public class ModBlocks {
             .setBlockSound(BlockSounds.CLOTH)
             .setTags(BlockTags.MINEABLE_BY_SHEARS)
             .build("carpet", newBlockID(), b -> new BlockLogicCarpet(b));
+        
+        TRASH_CAN_BLOCK = new BlockBuilder(BetterWithFurniture.MOD_ID)
+            .setResistance(4f)
+            .setHardness(1f)
+            .setBlockSound(BlockSounds.METAL)
+            .setTags(BlockTags.MINEABLE_BY_PICKAXE)
+            .build("trashcan", newBlockID(), b -> new BlockLogicRotatable(b, Materials.METAL));
     }
     
     public static int newBlockID() {

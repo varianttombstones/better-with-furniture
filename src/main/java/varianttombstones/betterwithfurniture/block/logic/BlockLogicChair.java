@@ -4,15 +4,11 @@ import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogicRotatable;
-import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.entity.TileEntitySeat;
 import net.minecraft.core.block.material.Materials;
 import net.minecraft.core.block.support.ISupport;
 import net.minecraft.core.block.support.PartialSupport;
 import net.minecraft.core.entity.player.Player;
-import net.minecraft.core.enums.EnumDropCause;
-import net.minecraft.core.item.ItemStack;
-import net.minecraft.core.item.Items;
 import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.pos.TilePos;
@@ -61,10 +57,5 @@ public class BlockLogicChair extends BlockLogicRotatable {
 
    public ISupport getSupport(World world, TilePosc tilePos, Side side) {
       return PartialSupport.INSTANCE;
-   }
-
-   // TODO: CHANGE THIS TO THE ITEM FOR THE CHAIR
-   public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int data, TileEntity tileEntity) {
-      return dropCause != EnumDropCause.IMPROPER_TOOL ? new ItemStack[]{new ItemStack(Items.SEAT)} : null;
    }
 }

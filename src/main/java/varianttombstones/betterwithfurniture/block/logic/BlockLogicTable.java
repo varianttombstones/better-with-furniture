@@ -10,14 +10,12 @@ import net.minecraft.core.item.Items;
 import net.minecraft.core.world.World;
 
 public class BlockLogicTable extends BlockLogicRotatable {
-    public BlockLogicTable(Block<?> block) {
+    public BlockLogicTable(Block<?> block, boolean isCoffeeTable) {
       super(block, Materials.WOOD);
-      this.setBlockBounds((double)0.0F, (double)0.0F, (double)0.0F, (double)1.0F, (double)0.5625F, (double)1.0F);
-   }
-
-   // TODO: CHANGE THIS TO THE ITEM FOR THE TABLE
-   public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int data, TileEntity tileEntity) {
-      return dropCause != EnumDropCause.IMPROPER_TOOL ? new ItemStack[]{new ItemStack(Items.SEAT)} : null;
+      if (isCoffeeTable)
+      {
+         this.setBlockBounds((double)0.0F, (double)0.0F, (double)0.0F, (double)1.0F, (double)0.4375F, (double)1.0F);
+      }
    }
 
    public boolean isCubeShaped() {
