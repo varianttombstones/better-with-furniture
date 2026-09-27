@@ -11,6 +11,7 @@ import turniplabs.halplibe.event.defs.CommonEvents;
 import turniplabs.halplibe.util.dependency.Key;
 import varianttombstones.betterwithfurniture.block.ModBlockRenderer;
 import varianttombstones.betterwithfurniture.block.ModBlocks;
+import varianttombstones.betterwithfurniture.block.ModRecipes;
 
 public class BetterWithFurniture implements ModInitializer {
 	public static final String MOD_ID = HalpLibe.registerMod("betterwithfurniture", true);
@@ -20,7 +21,13 @@ public class BetterWithFurniture implements ModInitializer {
 	public void onInitialize() {
 		CommonEvents.BEFORE_GAME_START.listen(Key.of(MOD_ID), this::beforeGameStart);
 		CommonEvents.AFTER_GAME_START.listen(Key.of(MOD_ID), this::afterGameStart);
-		ClientEvents.BLOCK_MODEL_RELOAD.listen(Key.of(MOD_ID),(t)->ModBlockRenderer.RegisterRenderers(BlockModelDispatcher.getInstance()));
+		CommonEvents.RECIPES_NAMESPACE_INIT.listen(Key.of(MOD_ID), this::initNamespaces);
+		CommonEvents.RECIPES_READY.listen(Key.of(MOD_ID), this::onRecipesReady);
+		if (HalpLibe.isClient)
+		{
+			ClientEvents.BLOCK_MODEL_RELOAD.listen(Key.of(MOD_ID),(t)->ModBlockRenderer.RegisterRenderers(BlockModelDispatcher.getInstance()));
+		}
+		
 		LOGGER.info("Better with Furniture initialized.");
 	}
 
@@ -30,5 +37,13 @@ public class BetterWithFurniture implements ModInitializer {
 
 	public void afterGameStart() {
 
+	}
+
+	public void onRecipesReady() {
+		ModRecipes.initializeRecipes();
+	}
+
+	public void initNamespaces() {
+		ModRecipes.initializeNamespaces();
 	}
 }

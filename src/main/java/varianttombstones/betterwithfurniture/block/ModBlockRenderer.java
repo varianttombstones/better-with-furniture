@@ -5,7 +5,7 @@ import net.minecraft.client.render.block.model.BlockModelRotatable;
 import net.minecraft.client.render.block.model.generic.BlockModelGenericRotatable;
 import net.minecraft.core.util.helper.Side;
 import varianttombstones.betterwithfurniture.block.model.BlockModelChair;
-import varianttombstones.betterwithfurniture.block.model.BlockModelTable;
+import varianttombstones.betterwithfurniture.block.model.BlockModelGenericCarpet;
 
 public class ModBlockRenderer {
     public static void RegisterRenderers(BlockModelDispatcher dispatcher)
@@ -23,5 +23,6 @@ public class ModBlockRenderer {
 
         dispatcher.addDispatch(new BlockModelGenericRotatable<>(ModBlocks.WOOD_TABLE_BLOCK, BlockModelDispatcher.loadDataModel("betterwithfurniture:block/table")));
         dispatcher.addDispatch(new BlockModelGenericRotatable<>(ModBlocks.COFFEE_TABLE_BLOCK, BlockModelDispatcher.loadDataModel("betterwithfurniture:block/coffee_table")));
+        dispatcher.addDispatch(new BlockModelGenericCarpet<>(ModBlocks.CARPET_BLOCK));
     }
 }

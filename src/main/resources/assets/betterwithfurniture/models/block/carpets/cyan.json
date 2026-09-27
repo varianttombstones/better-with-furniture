@@ -1,0 +1,7 @@
+{
+  "parent": "betterwithfurniture:block/carpet",
+  "textures": {
+    "0": "minecraft:block/wool/cyan",
+    "particle": "minecraft:block/wool/cyan"
+  }
+}
