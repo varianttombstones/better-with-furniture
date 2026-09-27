@@ -70,7 +70,6 @@ public class ModBlocks {
             .setHardness(.05f)
             .setBlockSound(BlockSounds.CLOTH)
             .setTags(BlockTags.MINEABLE_BY_SHEARS)
-            .setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.PLACEABLES))
             .build("carpet", newBlockID(), b -> new BlockLogicCarpet(b));
     }
     

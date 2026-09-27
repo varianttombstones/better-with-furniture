@@ -29,7 +29,6 @@ public class BlockLogicDrawers extends BlockLogicRotatable {
          return true;
       }
    }
-
    
    public static Container getInventory(World world, TilePosc tilePos) {
       Container inventory = (Container)Objects.requireNonNull(world.getTileEntity(tilePos));

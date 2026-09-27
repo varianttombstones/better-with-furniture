@@ -45,7 +45,7 @@ public class BlockLogicCarpet extends BlockLogic implements ISupportable, IPaint
 
     public @Nullable AABBdc getCollisionAABB(@NotNull WorldSource source, @NotNull TilePosc tilePos) {
         AABBd aabb = this.getBoundsFromStateMut(source, tilePos);
-        aabb.maxY = Math.max(aabb.minY, aabb.maxY - (double)0.125F);
+        aabb.maxY = (double)0; // We wanna be walking through it.
         return aabb.translate((double)tilePos.x(), (double)tilePos.y(), (double)tilePos.z());
     }
 
@@ -87,4 +87,9 @@ public class BlockLogicCarpet extends BlockLogic implements ISupportable, IPaint
     public void removeDye(@NotNull World world, @NotNull TilePosc tilePos) {
         world.setBlockDataNotify(tilePos, 0);
     }
+
+    @Override
+	public @NotNull String getLanguageKey(int meta) {
+		return super.getLanguageKey(meta) + "." + this.fromMetadata(meta).colorID;
+	}
 }
