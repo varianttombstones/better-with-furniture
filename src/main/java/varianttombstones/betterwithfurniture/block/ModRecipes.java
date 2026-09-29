@@ -60,9 +60,11 @@ public class ModRecipes {
 	public static void initializeRecipes()
 	{
 		RecipeBuilder.Shaped(BetterWithFurniture.MOD_ID)
-			.setShape("xx","x#", "xx")
+			.setShape("xy","xy")
 			.addInput('x', Blocks.PLANKS_OAK)
-			.create("drawer", new ItemStack(ModBlocks.CHEST_OF_DRAWERS_BLOCK, 1));
+			.addInput('y', Blocks.TRAPDOOR_PLANKS_OAK)
+			.addInput('y', Blocks.TRAPDOOR_PLANKS_PAINTED)
+			.create("drawer", new ItemStack(ModBlocks.CHEST_OF_DRAWERS_BLOCK, 3));
 		
 		RecipeBuilder.Shaped(BetterWithFurniture.MOD_ID)
 			.setShape("x#","xx", "ss")
