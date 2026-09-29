@@ -2,26 +2,24 @@ package varianttombstones.betterwithfurniture.block.model;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.useless.dragonfly.data.block.BlockModelData;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.render.block.model.BlockModelDispatcher;
 import net.minecraft.client.render.block.model.generic.BlockModelGeneric;
-import net.minecraft.client.render.block.model.generic.BlockModelGenericChest;
 import net.minecraft.client.render.tessellator.TessellatorGeneral;
 import net.minecraft.client.render.texture.stitcher.IconCoordinate;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogic;
-import net.minecraft.core.block.BlockLogicChest;
 import net.minecraft.core.block.BlockLogicRotatable;
 import net.minecraft.core.util.helper.Direction;
 import net.minecraft.core.world.WorldSource;
 import net.minecraft.core.world.pos.TilePosc;
 
 @Environment(EnvType.CLIENT)
-public class BlockModelGenericDrawers<T extends BlockLogic> extends BlockModelGeneric<T> {
-   public BlockModelGenericDrawers(Block<T> block) {
-      super(block, BlockModelDispatcher.loadDataModel("betterwithfurniture:block/drawers"));
+public class BlockModelPlayerFacing<T extends BlockLogic> extends BlockModelGeneric<T> {
+   public BlockModelPlayerFacing(Block<T> block, @NotNull BlockModelData model) {
+      super(block, model);
    }
    
    public boolean renderAttached(@NotNull TessellatorGeneral tessellator, @NotNull WorldSource worldSource, @NotNull TilePosc tilePos, boolean cullFaces, @Nullable IconCoordinate overrideTexture) {

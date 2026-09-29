@@ -61,32 +61,37 @@ public class ModRecipes {
 	{
 		RecipeBuilder.Shaped(BetterWithFurniture.MOD_ID)
 			.setShape("xy","xy")
-			.addInput('x', Blocks.PLANKS_OAK)
-			.addInput('y', Blocks.TRAPDOOR_PLANKS_OAK)
-			.addInput('y', Blocks.TRAPDOOR_PLANKS_PAINTED)
+			.addInput('x', "minecraft:planks")
+			.addInput('y', "minecraft:trapdoor_planks")
 			.create("drawer", new ItemStack(ModBlocks.CHEST_OF_DRAWERS_BLOCK, 3));
 		
 		RecipeBuilder.Shaped(BetterWithFurniture.MOD_ID)
+			.setShape("xy")
+			.addInput('x', "minecraft:logs")
+			.addInput('y', "minecraft:trapdoor_planks")
+			.create("cabinet", new ItemStack(ModBlocks.CABINET_BLOCK, 3));
+		
+		RecipeBuilder.Shaped(BetterWithFurniture.MOD_ID)
 			.setShape("x#","xx", "ss")
-			.addInput('x', Blocks.PLANKS_OAK)
+			.addInput('x', "minecraft:planks")
 			.addInput('s', Items.STICK)
 			.create("chair", new ItemStack(ModBlocks.CHAIR_BLOCK, 2));
 		
 		RecipeBuilder.Shaped(BetterWithFurniture.MOD_ID)
 			.setShape("xxx", "s#s", "s#s")
-			.addInput('x', Blocks.PLANKS_OAK)
+			.addInput('x', "minecraft:planks")
 			.addInput('s', Items.STICK)
 			.create("table", new ItemStack(ModBlocks.WOOD_TABLE_BLOCK, 2));
 		
 		RecipeBuilder.Shaped(BetterWithFurniture.MOD_ID)
 			.setShape("xxx", "s#s")
-			.addInput('x', Blocks.PLANKS_OAK)
+			.addInput('x', "minecraft:planks")
 			.addInput('s', Items.STICK)
 			.create("coffeetable", new ItemStack(ModBlocks.COFFEE_TABLE_BLOCK, 2));
 		
 		RecipeBuilder.Shaped(BetterWithFurniture.MOD_ID)
 			.setShape("xxx", "s#s", "sss")
-			.addInput('x', Blocks.PLANKS_OAK)
+			.addInput('x', "minecraft:planks")
 			.addInput('s', Items.INGOT_IRON)
 			.create("trashcan", new ItemStack(ModBlocks.TRASH_CAN_BLOCK, 1));
 		

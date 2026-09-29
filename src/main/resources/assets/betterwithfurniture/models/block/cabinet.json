@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "betterwithfurniture:block/cabinet_front",
+	"south": "minecraft:block/log/oak_side",
+	"east": "minecraft:block/log/oak_side",
+	"west": "minecraft:block/log/oak_side",
+	"up": "minecraft:block/planks/oak",
+	"down": "minecraft:block/planks/oak"
+  }
+}

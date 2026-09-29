@@ -20,14 +20,16 @@ import varianttombstones.betterwithfurniture.block.logic.BlockLogicChair;
 import varianttombstones.betterwithfurniture.block.logic.BlockLogicDrawers;
 import varianttombstones.betterwithfurniture.block.logic.BlockLogicTable;
 import varianttombstones.betterwithfurniture.block.logic.BlockLogicTrashCan;
+import varianttombstones.betterwithfurniture.block.tileentity.TileEntityCabinet;
 import varianttombstones.betterwithfurniture.block.tileentity.TileEntityDrawers;
 import varianttombstones.betterwithfurniture.block.tileentity.TileEntityTrashCan;
 
 public class ModBlocks {
-    private static int BLOCK_ID = 2344;
+    private static int BLOCK_ID = 2344; // End at 2499?
 
     public static Block<?> CHAIR_BLOCK;
     public static Block<?> CHEST_OF_DRAWERS_BLOCK;
+    public static Block<?> CABINET_BLOCK;
     public static Block<?> WOOD_TABLE_BLOCK;
     public static Block<?> COFFEE_TABLE_BLOCK;
     public static Block<?> CARPET_BLOCK;
@@ -36,6 +38,7 @@ public class ModBlocks {
     public static void InitBlocks()
     {
 		TileEntityDispatcher.addMapping(TileEntityDrawers.class, new NamespaceID(BetterWithFurniture.MOD_ID, "drawers"));
+		TileEntityDispatcher.addMapping(TileEntityCabinet.class, new NamespaceID(BetterWithFurniture.MOD_ID, "cabinet"));
 		TileEntityDispatcher.addMapping(TileEntityTrashCan.class, new NamespaceID(BetterWithFurniture.MOD_ID, "trashcan"));
        
         CHAIR_BLOCK = new BlockBuilder(BetterWithFurniture.MOD_ID)
@@ -52,7 +55,15 @@ public class ModBlocks {
             .setBlockSound(BlockSounds.WOOD)
             .setTags(BlockTags.MINEABLE_BY_AXE)
             .setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.STORAGE))
-            .build("drawers", newBlockID(), b -> new BlockLogicDrawers(b, Materials.WOOD));
+            .build("drawers", newBlockID(), b -> new BlockLogicDrawers(b, Materials.WOOD, TileEntityDrawers::new));
+
+        CABINET_BLOCK = new BlockBuilder(BetterWithFurniture.MOD_ID)
+            .setResistance(2.0f)
+            .setHardness(.4f)
+            .setBlockSound(BlockSounds.WOOD)
+            .setTags(BlockTags.MINEABLE_BY_AXE)
+            .setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.STORAGE))
+            .build("cabinet", newBlockID(), b -> new BlockLogicDrawers(b, Materials.WOOD, TileEntityCabinet::new));
 
         WOOD_TABLE_BLOCK = new BlockBuilder(BetterWithFurniture.MOD_ID)
             .setResistance(2.0f)

@@ -4,6 +4,9 @@ tile.betterwithfurniture.chair.desc=A chair you can sit on.
 tile.betterwithfurniture.drawers.name=Chest of Drawers
 tile.betterwithfurniture.drawers.desc=A chest of drawers to store your stuff.
 
+tile.betterwithfurniture.cabinet.name=Cabinet
+tile.betterwithfurniture.cabinet.desc=A cabinet to store your stuff.
+
 tile.betterwithfurniture.woodtable.name=Wood Table
 tile.betterwithfurniture.woodtable.desc=A table for putting things on.
 
