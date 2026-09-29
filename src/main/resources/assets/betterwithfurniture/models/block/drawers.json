@@ -1,25 +1,11 @@
 {
-	"format_version": "26.3",
-	"credit": "Made with Blockbench",
-	"textures": {
-		"0": "betterwithfurniture:block/dresser_front",
-		"1": "minecraft:block/log/oak_side",
-		"2": "minecraft:block/planks/oak",
-		"particle": "minecraft:block/log/oak_side"
-	},
-	"elements": [
-		{
-			"from": [0, 0, 0],
-			"to": [16, 16, 16],
-			"faces": {
-				"north": {"uv": [0, 0, 16, 16], "texture": "#0"},
-				"east": {"uv": [0, 0, 16, 16], "texture": "#1"},
-				"south": {"uv": [0, 0, 16, 16], "texture": "#1"},
-				"west": {"uv": [0, 0, 16, 16], "texture": "#1"},
-				"up": {"uv": [0, 0, 16, 16], "texture": "#2"},
-				"down": {"uv": [0, 0, 16, 16], "texture": "#2"}
-			}
-		}
-	],
-	"display": {}
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "north": "betterwithfurniture:block/dresser_front",
+	"south": "minecraft:block/log/oak_side",
+	"east": "minecraft:block/log/oak_side",
+	"west": "minecraft:block/log/oak_side",
+	"up": "minecraft:block/planks/oak",
+	"down": "minecraft:block/planks/oak"
+  }
 }
