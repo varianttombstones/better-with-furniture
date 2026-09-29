@@ -32,5 +32,21 @@
 				"down": {"uv": [8, 0, 16, 16], "texture": "#0"}
 			}
 		}
-	]
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"firstperson_righthand": {
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"ground": {
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [45, 45, 0],
+			"translation": [0, -0.25, 0],
+			"scale": [0.6, 0.6, 0.6]
+		}
+	}
 }

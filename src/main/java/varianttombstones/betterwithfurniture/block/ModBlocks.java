@@ -19,7 +19,9 @@ import varianttombstones.betterwithfurniture.block.logic.BlockLogicCarpet;
 import varianttombstones.betterwithfurniture.block.logic.BlockLogicChair;
 import varianttombstones.betterwithfurniture.block.logic.BlockLogicDrawers;
 import varianttombstones.betterwithfurniture.block.logic.BlockLogicTable;
+import varianttombstones.betterwithfurniture.block.logic.BlockLogicTrashCan;
 import varianttombstones.betterwithfurniture.block.tileentity.TileEntityDrawers;
+import varianttombstones.betterwithfurniture.block.tileentity.TileEntityTrashCan;
 
 public class ModBlocks {
     private static int BLOCK_ID = 2344;
@@ -34,6 +36,7 @@ public class ModBlocks {
     public static void InitBlocks()
     {
 		TileEntityDispatcher.addMapping(TileEntityDrawers.class, new NamespaceID(BetterWithFurniture.MOD_ID, "drawers"));
+		TileEntityDispatcher.addMapping(TileEntityTrashCan.class, new NamespaceID(BetterWithFurniture.MOD_ID, "trashcan"));
        
         CHAIR_BLOCK = new BlockBuilder(BetterWithFurniture.MOD_ID)
             .setResistance(2.0f)
@@ -79,7 +82,8 @@ public class ModBlocks {
             .setHardness(1f)
             .setBlockSound(BlockSounds.METAL)
             .setTags(BlockTags.MINEABLE_BY_PICKAXE)
-            .build("trashcan", newBlockID(), b -> new BlockLogicRotatable(b, Materials.METAL));
+            .setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.PLACEABLES))
+            .build("trashcan", newBlockID(), b -> new BlockLogicTrashCan(b));
     }
     
     public static int newBlockID() {

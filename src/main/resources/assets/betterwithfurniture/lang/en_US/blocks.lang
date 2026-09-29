@@ -48,3 +48,6 @@ tile.betterwithfurniture.carpet.orange.name=Orange Carpet
 tile.betterwithfurniture.carpet.orange.desc=A decorative carpet, dyed orange.
 tile.betterwithfurniture.carpet.white.name=White Carpet
 tile.betterwithfurniture.carpet.white.desc=A decorative carpet, dyed white.
+
+tile.betterwithfurniture.trashcan.name=Trash Can
+tile.betterwithfurniture.trashcan.desc=Right click to dispose the current stack, right click while holding nothing to get last dumped stack.

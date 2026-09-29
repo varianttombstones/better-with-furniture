@@ -10,7 +10,7 @@ import net.minecraft.core.item.Items;
 import net.minecraft.core.world.World;
 
 public class BlockLogicTable extends BlockLogicRotatable {
-    public BlockLogicTable(Block<?> block, boolean isCoffeeTable) {
+   public BlockLogicTable(Block<?> block, boolean isCoffeeTable) {
       super(block, Materials.WOOD);
       if (isCoffeeTable)
       {

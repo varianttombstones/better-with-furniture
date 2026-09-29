@@ -16,12 +16,12 @@ import net.minecraft.core.world.pos.TilePosc;
 import varianttombstones.betterwithfurniture.block.tileentity.TileEntityDrawers;
 
 public class BlockLogicDrawers extends BlockLogicRotatable {
-    public BlockLogicDrawers(Block<?> block, Material material) {
+   public BlockLogicDrawers(Block<?> block, Material material) {
       super(block, material);
       block.withEntity(TileEntityDrawers::new);
    }
 
-    public boolean onInteracted(World world, TilePosc tilePos, Player player, @Nullable Side side, double xHit, double yHit) {
+   public boolean onInteracted(World world, TilePosc tilePos, Player player, @Nullable Side side, double xHit, double yHit) {
       if (world.isClientSide) {
          return true;
       } else {
