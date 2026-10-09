@@ -15,11 +15,7 @@ import turniplabs.halplibe.helper.BlockBuilder;
 import turniplabs.halplibe.helper.creativeInventory.CreativeInventoryCategory;
 import turniplabs.halplibe.helper.creativeInventory.CreativeInventoryPlacement;
 import varianttombstones.betterwithfurniture.BetterWithFurniture;
-import varianttombstones.betterwithfurniture.block.logic.BlockLogicCarpet;
-import varianttombstones.betterwithfurniture.block.logic.BlockLogicChair;
-import varianttombstones.betterwithfurniture.block.logic.BlockLogicDrawers;
-import varianttombstones.betterwithfurniture.block.logic.BlockLogicTable;
-import varianttombstones.betterwithfurniture.block.logic.BlockLogicTrashCan;
+import varianttombstones.betterwithfurniture.block.logic.*;
 import varianttombstones.betterwithfurniture.block.tileentity.TileEntityCabinet;
 import varianttombstones.betterwithfurniture.block.tileentity.TileEntityDrawers;
 import varianttombstones.betterwithfurniture.block.tileentity.TileEntityTrashCan;
@@ -102,8 +98,7 @@ public class ModBlocks {
 			.setHardness(.2f)
 			.setBlockSound(BlockSounds.WOOD)
 			.setTags(BlockTags.MINEABLE_BY_AXE)
-			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.PLACEABLES))
-			.build("chairpainted", newBlockID(), b -> new BlockLogicChair(b));
+			.build("chairpainted", newBlockID(), b -> new BlockLogicChairPainted(b));
     }
 
     public static int newBlockID() {
