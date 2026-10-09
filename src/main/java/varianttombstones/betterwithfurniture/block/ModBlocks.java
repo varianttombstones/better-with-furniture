@@ -34,13 +34,14 @@ public class ModBlocks {
     public static Block<?> COFFEE_TABLE_BLOCK;
     public static Block<?> CARPET_BLOCK;
     public static Block<?> TRASH_CAN_BLOCK;
+	public static Block<?> CHAIR_PAINTED;
 
     public static void InitBlocks()
     {
 		TileEntityDispatcher.addMapping(TileEntityDrawers.class, new NamespaceID(BetterWithFurniture.MOD_ID, "drawers"));
 		TileEntityDispatcher.addMapping(TileEntityCabinet.class, new NamespaceID(BetterWithFurniture.MOD_ID, "cabinet"));
 		TileEntityDispatcher.addMapping(TileEntityTrashCan.class, new NamespaceID(BetterWithFurniture.MOD_ID, "trashcan"));
-       
+
         CHAIR_BLOCK = new BlockBuilder(BetterWithFurniture.MOD_ID)
             .setResistance(2.0f)
             .setHardness(.2f)
@@ -80,14 +81,14 @@ public class ModBlocks {
             .setTags(BlockTags.MINEABLE_BY_AXE)
             .setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.PLACEABLES))
             .build("coffeetable", newBlockID(), b -> new BlockLogicTable(b, true));
-        
+
         CARPET_BLOCK = new BlockBuilder(BetterWithFurniture.MOD_ID)
             .setResistance(0.5f)
             .setHardness(.05f)
             .setBlockSound(BlockSounds.CLOTH)
             .setTags(BlockTags.MINEABLE_BY_SHEARS)
             .build("carpet", newBlockID(), b -> new BlockLogicCarpet(b));
-        
+
         TRASH_CAN_BLOCK = new BlockBuilder(BetterWithFurniture.MOD_ID)
             .setResistance(4f)
             .setHardness(1f)
@@ -95,8 +96,16 @@ public class ModBlocks {
             .setTags(BlockTags.MINEABLE_BY_PICKAXE)
             .setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.PLACEABLES))
             .build("trashcan", newBlockID(), b -> new BlockLogicTrashCan(b));
+
+		CHAIR_PAINTED = new BlockBuilder(BetterWithFurniture.MOD_ID)
+			.setResistance(2.0f)
+			.setHardness(.2f)
+			.setBlockSound(BlockSounds.WOOD)
+			.setTags(BlockTags.MINEABLE_BY_AXE)
+			.setCreativeInventoryPlacement(new CreativeInventoryPlacement.Category(CreativeInventoryCategory.PLACEABLES))
+			.build("chairpainted", newBlockID(), b -> new BlockLogicChair(b));
     }
-    
+
     public static int newBlockID() {
         BLOCK_ID = BLOCK_ID + 1;
         return BLOCK_ID;

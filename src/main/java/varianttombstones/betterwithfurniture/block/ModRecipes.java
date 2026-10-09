@@ -48,13 +48,16 @@ public class ModRecipes {
 	{
 		RecipeBuilder.initNameSpace(BetterWithFurniture.MOD_ID);
 		List<ItemStack> carpets = Registries.stackListOf(ModBlocks.CARPET_BLOCK);
+		List<ItemStack> chairs = Registries.stackListOf(ModBlocks.CHAIR_BLOCK);
 
 		for (DyeColor c : DyeColor.values())
 		{
 			carpets.add(new ItemStack(ModBlocks.CARPET_BLOCK, 1, c.blockMeta));
+			chairs.add(new ItemStack(ModBlocks.CHAIR_PAINTED, 1, c.blockMeta));
 		}
 
 		registerItemGroup("carpets", carpets);
+		registerItemGroup("chairs", chairs);
 	}
 
 	public static void initializeRecipes()
@@ -64,37 +67,37 @@ public class ModRecipes {
 			.addInput('x', "minecraft:planks")
 			.addInput('y', "minecraft:trapdoor_planks")
 			.create("drawer", new ItemStack(ModBlocks.CHEST_OF_DRAWERS_BLOCK, 3));
-		
+
 		RecipeBuilder.Shaped(BetterWithFurniture.MOD_ID)
 			.setShape("xy")
 			.addInput('x', "minecraft:logs")
 			.addInput('y', "minecraft:trapdoor_planks")
 			.create("cabinet", new ItemStack(ModBlocks.CABINET_BLOCK, 3));
-		
+
 		RecipeBuilder.Shaped(BetterWithFurniture.MOD_ID)
 			.setShape("x#","xx", "ss")
-			.addInput('x', "minecraft:planks")
+			.addInput('x', Blocks.PLANKS_OAK)
 			.addInput('s', Items.STICK)
 			.create("chair", new ItemStack(ModBlocks.CHAIR_BLOCK, 2));
-		
+
 		RecipeBuilder.Shaped(BetterWithFurniture.MOD_ID)
 			.setShape("xxx", "s#s", "s#s")
 			.addInput('x', "minecraft:planks")
 			.addInput('s', Items.STICK)
 			.create("table", new ItemStack(ModBlocks.WOOD_TABLE_BLOCK, 2));
-		
+
 		RecipeBuilder.Shaped(BetterWithFurniture.MOD_ID)
 			.setShape("xxx", "s#s")
 			.addInput('x', "minecraft:planks")
 			.addInput('s', Items.STICK)
 			.create("coffeetable", new ItemStack(ModBlocks.COFFEE_TABLE_BLOCK, 2));
-		
+
 		RecipeBuilder.Shaped(BetterWithFurniture.MOD_ID)
 			.setShape("xxx", "s#s", "sss")
 			.addInput('x', "minecraft:planks")
 			.addInput('s', Items.INGOT_IRON)
 			.create("trashcan", new ItemStack(ModBlocks.TRASH_CAN_BLOCK, 1));
-		
+
 		// Carpet crafting
 		for (DyeColor c : DyeColor.itemOrderedColors())
 		{
@@ -104,7 +107,19 @@ public class ModRecipes {
 				.create(colorFromBlockMeta(c.itemMeta).colorID + "_workbench", new ItemStack(ModBlocks.CARPET_BLOCK, 6, c.itemMeta));
 		}
 
+		// Coloured chairs crafting
+		for (DyeColor c : DyeColor.itemOrderedColors())
+		{
+			RecipeBuilder.Shaped(BetterWithFurniture.MOD_ID)
+				.setShape("x#","xx", "ss")
+				.addInput('x', Blocks.PLANKS_OAK_PAINTED, c.itemMeta)
+				.addInput('s', Items.STICK)
+				.create(colorFromBlockMeta(c.itemMeta).colorID + "_workbench", new ItemStack(ModBlocks.CHAIR_PAINTED, 2, c.itemMeta));
+		}
+
 		// Register the carpets for dying
 		registerBlockDyeRecipes("carpet", "carpets", ModBlocks.CARPET_BLOCK, false);
+		// Register the chairs for dying
+		registerBlockDyeRecipes("chair", "chairs", ModBlocks.CHAIR_PAINTED, false);
 	}
 }

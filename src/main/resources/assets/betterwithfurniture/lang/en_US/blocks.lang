@@ -1,6 +1,41 @@
 tile.betterwithfurniture.chair.name=Chair
 tile.betterwithfurniture.chair.desc=A chair you can sit on.
 
+tile.betterwithfurniture.chairpainted.name=Uncoloured Paintable Chair
+tile.betterwithfurniture.chairpainted.desc=Uncoloured version of the paintable chair
+tile.betterwithfurniture.chairpainted.black.name=Black Chair
+tile.betterwithfurniture.chairpainted.black.desc=A black chair you can sit on.
+tile.betterwithfurniture.chairpainted.red.name=Red Chair
+tile.betterwithfurniture.chairpainted.red.desc=A red chair you can sit on.
+tile.betterwithfurniture.chairpainted.green.name=Green Chair
+tile.betterwithfurniture.chairpainted.green.desc=A green chair you can sit on.
+tile.betterwithfurniture.chairpainted.brown.name=Brown Chair
+tile.betterwithfurniture.chairpainted.brown.desc=A brown chair you can sit on.
+tile.betterwithfurniture.chairpainted.blue.name=Blue Chair
+tile.betterwithfurniture.chairpainted.blue.desc=A blue chair you can sit on.
+tile.betterwithfurniture.chairpainted.purple.name=Purple Chair
+tile.betterwithfurniture.chairpainted.purple.desc=A purple chair you can sit on.
+tile.betterwithfurniture.chairpainted.cyan.name=Cyan Chair
+tile.betterwithfurniture.chairpainted.cyan.desc=A cyan chair you can sit on.
+tile.betterwithfurniture.chairpainted.silver.name=Light Gray Chair
+tile.betterwithfurniture.chairpainted.silver.desc=A light gray chair you can sit on.
+tile.betterwithfurniture.chairpainted.gray.name=Gray Chair
+tile.betterwithfurniture.chairpainted.gray.desc=A gray chair you can sit on.
+tile.betterwithfurniture.chairpainted.pink.name=Pink Chair
+tile.betterwithfurniture.chairpainted.pink.desc=A pink chair you can sit on.
+tile.betterwithfurniture.chairpainted.lime.name=Lime Chair
+tile.betterwithfurniture.cachairpainted.lime.desc=A black chair you can sit on.
+tile.betterwithfurniture.chairpainted.yellow.name=Yellow Chair
+tile.betterwithfurniture.chairpainted.yellow.desc=A black chair you can sit on.
+tile.betterwithfurniture.chairpainted.lightblue.name=Light Blue Chair
+tile.betterwithfurniture.chairpainted.lightblue.desc=A black chair you can sit on.
+tile.betterwithfurniture.chairpainted.magenta.name=Magenta Chair
+tile.betterwithfurniture.chairpainted.magenta.desc=A black chair you can sit on.
+tile.betterwithfurniture.chairpainted.orange.name=Orange Chair
+tile.betterwithfurniture.chairpainted.orange.desc=A black chair you can sit on.
+tile.betterwithfurniture.chairpainted.white.name=White Chair
+tile.betterwithfurniture.chairpainted.white.desc=A black chair you can sit on.
+
 tile.betterwithfurniture.drawers.name=Chest of Drawers
 tile.betterwithfurniture.drawers.desc=A chest of drawers to store your stuff.
 
