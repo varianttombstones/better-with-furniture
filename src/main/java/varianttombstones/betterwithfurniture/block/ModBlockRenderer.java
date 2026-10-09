@@ -1,18 +1,16 @@
 package varianttombstones.betterwithfurniture.block;
 
 import net.minecraft.client.render.block.model.BlockModelDispatcher;
-import net.minecraft.client.render.block.model.BlockModelRotatable;
 import net.minecraft.client.render.block.model.generic.BlockModelGeneric;
 import net.minecraft.client.render.block.model.generic.BlockModelGenericRotatable;
-import net.minecraft.core.util.helper.Side;
-import varianttombstones.betterwithfurniture.block.model.BlockModelChair;
+import varianttombstones.betterwithfurniture.block.model.BlockModelGenericChair;
 import varianttombstones.betterwithfurniture.block.model.BlockModelGenericCarpet;
 import varianttombstones.betterwithfurniture.block.model.BlockModelPlayerFacing;
 
 public class ModBlockRenderer {
     public static void RegisterRenderers(BlockModelDispatcher dispatcher)
     {
-        dispatcher.addDispatch(new BlockModelChair<>(ModBlocks.CHAIR_BLOCK));
+        dispatcher.addDispatch(new BlockModelGenericChair<>(ModBlocks.CHAIR_BLOCK));
 
         dispatcher.addDispatch(new BlockModelPlayerFacing<>(ModBlocks.CHEST_OF_DRAWERS_BLOCK, BlockModelDispatcher.loadDataModel("betterwithfurniture:block/drawers")));
         dispatcher.addDispatch(new BlockModelPlayerFacing<>(ModBlocks.CABINET_BLOCK, BlockModelDispatcher.loadDataModel("betterwithfurniture:block/cabinet")));

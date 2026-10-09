@@ -1,5 +1,10 @@
 package varianttombstones.betterwithfurniture.block.logic;
 
+import net.minecraft.core.block.entity.TileEntity;
+import net.minecraft.core.enums.EnumDropCause;
+import net.minecraft.core.item.ItemStack;
+import net.minecraft.core.util.helper.DyeColor;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.core.block.Block;
@@ -17,7 +22,7 @@ import net.minecraft.core.world.pos.TilePosc;
 public class BlockLogicChair extends BlockLogicRotatable {
     public BlockLogicChair(Block<?> block) {
       super(block, Materials.WOOD);
-      this.setBlockBounds((double)0.0F, (double)0.0F, (double)0.0F, (double)1.0F, (double)0.5625F, (double)1.0F);
+      this.setBlockBounds((double)0.0F, (double)0.0F, (double)0.0F, (double)1.0F, (double)0.4375F, (double)1.0F);
       block.withEntity(() -> new TileEntitySeat(block));
    }
 
@@ -58,4 +63,33 @@ public class BlockLogicChair extends BlockLogicRotatable {
    public ISupport getSupport(World world, TilePosc tilePos, Side side) {
       return PartialSupport.INSTANCE;
    }
+
+	public int getPlacedData(@Nullable Player player, @NotNull ItemStack itemStack, @NotNull World world, @NotNull TilePosc tilePos, @NotNull Side side, double xHit, double yHit) {
+		return itemStack.getMetadata() & 15;
+	}
+
+	public ItemStack[] getBreakResult(@NotNull World world, @NotNull EnumDropCause dropCause, int data, @Nullable TileEntity tileEntity) {
+		return new ItemStack[]{new ItemStack(this, 1, data)};
+	}
+
+	public @NotNull DyeColor fromMetadata(int meta) {
+		return DyeColor.colorFromBlockMeta(meta);
+	}
+
+	public int toMetadata(@NotNull DyeColor color) {
+		return color.blockMeta;
+	}
+
+	public int stripColorFromMetadata(int meta) {
+		return 0;
+	}
+
+	public void removeDye(@NotNull World world, @NotNull TilePosc tilePos) {
+		world.setBlockDataNotify(tilePos, 0);
+	}
+
+	@Override
+	public @NotNull String getLanguageKey(int meta) {
+		return super.getLanguageKey(meta) + "." + this.fromMetadata(meta).colorID;
+	}
 }

@@ -1,0 +1,8 @@
+{
+  "parent": "betterwithfurniture:block/chair",
+  "textures": {
+    "0": "betterwithfurniture:block/logs/magenta",
+    "1": "minecraft:block/planks/magenta",
+    "particle": "minecraft:block/planks/magenta"
+  }
+}
