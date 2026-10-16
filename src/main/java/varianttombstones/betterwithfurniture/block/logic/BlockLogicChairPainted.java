@@ -2,9 +2,13 @@ package varianttombstones.betterwithfurniture.block.logic;
 
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogic;
+import net.minecraft.core.block.BlockLogicRotatable;
 import net.minecraft.core.block.IPainted;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.entity.TileEntitySeat;
+import net.minecraft.core.block.material.Materials;
+import net.minecraft.core.block.support.ISupport;
+import net.minecraft.core.block.support.PartialSupport;
 import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.item.ItemStack;
@@ -16,10 +20,14 @@ import net.minecraft.core.world.pos.TilePos;
 import net.minecraft.core.world.pos.TilePosc;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import varianttombstones.betterwithfurniture.block.ModBlocks;
 
-public class BlockLogicChairPainted extends BlockLogicChair implements IPainted, BlockLogic.MatcherDataEquivalency {
+public class BlockLogicChairPainted extends BlockLogicRotatable implements IPainted, BlockLogic.MatcherDataEquivalency {
 	public BlockLogicChairPainted(Block<?> block) {
-		super(block);
+
+		super(block, Materials.WOOD);
+		this.setBlockBounds((double) 0.0F, (double) 0.0F, (double) 0.0F, (double) 1.0F, (double) 0.4375F, (double) 1.0F);
+		block.withEntity(() -> new TileEntitySeat(block));
 	}
 
 	@Override
@@ -42,6 +50,36 @@ public class BlockLogicChairPainted extends BlockLogicChair implements IPainted,
 
 			return true;
 		}
+	}
+
+	public void onRemoved(World world, TilePosc tilePos, int data) {
+		if (!world.isClientSide) {
+			TileEntitySeat tileEntity = (TileEntitySeat) world.getTileEntity(tilePos);
+			if (tileEntity != null && tileEntity.getPassenger() != null) {
+				tileEntity.ejectRider();
+			}
+		}
+
+		super.onRemoved(world, tilePos, data);
+	}
+
+	public boolean isCubeShaped() {
+		return false;
+	}
+
+	public boolean isSolidRender() {
+		return false;
+	}
+
+	public ISupport getSupport(World world, TilePosc tilePos, Side side) {
+		return PartialSupport.INSTANCE;
+	}
+
+	public void setColor(@NotNull World world, @NotNull TilePosc tilePos, @NotNull DyeColor color) {
+		int meta = world.getBlockData(tilePos);
+		world.setBlockTypeDataRaw(tilePos, ModBlocks.CHAIR_PAINTED, meta);
+		world.setBlockData(tilePos, meta);
+		((BlockLogicChairPainted) ModBlocks.CHAIR_PAINTED.getLogic()).setColor(world, tilePos, color);
 	}
 
 	public int getPlacedData(@Nullable Player player, @NotNull ItemStack itemStack, @NotNull World world, @NotNull TilePosc tilePos, @NotNull Side side, double xHit, double yHit) {
@@ -71,11 +109,5 @@ public class BlockLogicChairPainted extends BlockLogicChair implements IPainted,
 	@Override
 	public @NotNull String getLanguageKey(int meta) {
 		return super.getLanguageKey(meta) + "." + this.fromMetadata(meta).colorID;
-	}
-
-	public void setColor(@NotNull World world, @NotNull TilePosc tilePos, @NotNull DyeColor color) {
-		int meta = world.getBlockData(tilePos);
-		world.setBlockData(tilePos, meta & 15 | this.toMetadata(color));
-		world.notifyBlockChange(tilePos, this.block);
 	}
 }
