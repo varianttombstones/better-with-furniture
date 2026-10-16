@@ -71,7 +71,7 @@ public class BlockLogicChairPainted extends BlockLogicRotatable implements IPain
 		return false;
 	}
 
-	public ISupport getSupport(World world, TilePosc tilePos, Side side) {
+	public @NotNull ISupport getSupport(World world, TilePosc tilePos, Side side) {
 		return PartialSupport.INSTANCE;
 	}
 
@@ -79,7 +79,6 @@ public class BlockLogicChairPainted extends BlockLogicRotatable implements IPain
 		int meta = world.getBlockData(tilePos);
 		world.setBlockTypeDataRaw(tilePos, ModBlocks.CHAIR_PAINTED, meta);
 		world.setBlockData(tilePos, meta);
-		((BlockLogicChairPainted) ModBlocks.CHAIR_PAINTED.getLogic()).setColor(world, tilePos, color);
 	}
 
 	public int getPlacedData(@Nullable Player player, @NotNull ItemStack itemStack, @NotNull World world, @NotNull TilePosc tilePos, @NotNull Side side, double xHit, double yHit) {

@@ -1,9 +1,6 @@
 package varianttombstones.betterwithfurniture.block.logic;
 
 import net.minecraft.core.block.*;
-import net.minecraft.core.block.entity.TileEntity;
-import net.minecraft.core.enums.EnumDropCause;
-import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.helper.DyeColor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -60,7 +57,7 @@ public class BlockLogicChair extends BlockLogicRotatable implements IPaintable, 
 		return false;
 	}
 
-	public ISupport getSupport(World world, TilePosc tilePos, Side side) {
+	public @NotNull ISupport getSupport(World world, TilePosc tilePos, Side side) {
 		return PartialSupport.INSTANCE;
 	}
 

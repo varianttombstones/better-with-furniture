@@ -16,7 +16,7 @@ import org.jetbrains.annotations.Nullable;
 import org.useless.dragonfly.models.block.StaticBlockModel;
 import varianttombstones.betterwithfurniture.BetterWithFurniture;
 
-public class BlockModelGenericChairPainted<T extends BlockLogic> extends BlockModelGenericRotatable {
+public class BlockModelGenericChairPainted<T extends BlockLogic> extends BlockModelGenericRotatable<T> {
 	public final StaticBlockModel[] colourModels = new StaticBlockModel[16];
 
 	public BlockModelGenericChairPainted(Block block) {

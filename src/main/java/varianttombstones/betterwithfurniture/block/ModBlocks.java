@@ -31,6 +31,10 @@ public class ModBlocks {
     public static Block<?> CARPET_BLOCK;
     public static Block<?> TRASH_CAN_BLOCK;
 	public static Block<?> CHAIR_PAINTED;
+	public static Block<?> TABLE_PAINTED;
+	public static Block<?> COFFEE_TABLE_PAINTED;
+	public static Block<?> CABINET_PAINTED;
+	public static Block<?> DRAWER_PAINTED;
 
     public static void InitBlocks()
     {
@@ -99,6 +103,13 @@ public class ModBlocks {
 			.setBlockSound(BlockSounds.WOOD)
 			.setTags(BlockTags.MINEABLE_BY_AXE)
 			.build("chairpainted", newBlockID(), b -> new BlockLogicChairPainted(b));
+
+		TABLE_PAINTED = new BlockBuilder(BetterWithFurniture.MOD_ID)
+			.setResistance(2.0f)
+			.setHardness(.2f)
+			.setBlockSound(BlockSounds.WOOD)
+			.setTags(BlockTags.MINEABLE_BY_AXE)
+			.build("tablepainted", newBlockID(), b -> new BlockLogicTablePainted(b, false));
     }
 
     public static int newBlockID() {
