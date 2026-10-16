@@ -19,20 +19,8 @@ import varianttombstones.betterwithfurniture.BetterWithFurniture;
 
 @Environment(EnvType.CLIENT)
 public class BlockModelGenericChair<T extends BlockLogic> extends BlockModelGenericRotatable<T> {
-	public final StaticBlockModel[] colourModels = new StaticBlockModel[16];
-
 	public BlockModelGenericChair(Block<T> block) {
 		super(block, BlockModelDispatcher.loadDataModel("betterwithfurniture:block/chair"));
-
-		for (DyeColor color : DyeColor.blockOrderedColors()) {
-			this.colourModels[color.blockMeta] = BlockModelDispatcher.loadDataModel(
-				BetterWithFurniture.MOD_ID + ":block/carpets/%s".formatted(color.colorID)
-			).asModel();
-		}
-	}
-
-	public @NotNull StaticBlockModel getModelFromData(int data) {
-		return this.colourModels[data & 15];
 	}
 
 	public boolean renderAttached(TessellatorGeneral tessellator, WorldSource worldSource, TilePosc tilePos, boolean cullFaces, @Nullable IconCoordinate overrideTexture) {
