@@ -1,0 +1,11 @@
+{
+  "parent": "betterwithfurniture:block/drawers",
+  "textures": {
+    "north": "betterwithfurniture:block/dresser_front/lime",
+    "south": "betterwithfurniture:block/logs/lime",
+    "east": "betterwithfurniture:block/logs/lime",
+    "west": "betterwithfurniture:block/logs/lime",
+    "up": "minecraft:block/planks/lime",
+    "down": "minecraft:block/planks/lime"
+  }
+}

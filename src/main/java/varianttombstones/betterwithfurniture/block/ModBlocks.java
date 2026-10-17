@@ -110,7 +110,15 @@ public class ModBlocks {
 			.setBlockSound(BlockSounds.WOOD)
 			.setTags(BlockTags.MINEABLE_BY_AXE)
 			.build("tablepainted", newBlockID(), b -> new BlockLogicTablePainted(b, false));
-    }
+
+		DRAWER_PAINTED = new BlockBuilder(BetterWithFurniture.MOD_ID)
+			.setResistance(2.0f)
+			.setHardness(.4f)
+			.setBlockSound(BlockSounds.WOOD)
+			.setTags(BlockTags.MINEABLE_BY_AXE)
+			.build("drawerspainted", newBlockID(), b -> new BlockLogicDrawersPainted(b, Materials.WOOD, TileEntityDrawers::new));
+
+	}
 
     public static int newBlockID() {
         BLOCK_ID = BLOCK_ID + 1;

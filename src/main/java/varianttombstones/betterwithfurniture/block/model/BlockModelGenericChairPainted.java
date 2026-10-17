@@ -19,18 +19,13 @@ import org.jetbrains.annotations.Nullable;
 import org.useless.dragonfly.models.block.StaticBlockModel;
 import varianttombstones.betterwithfurniture.BetterWithFurniture;
 import varianttombstones.betterwithfurniture.block.logic.BlockLogicChairPainted;
+import varianttombstones.betterwithfurniture.block.logic.BlockLogicRotatablePainted;
 
-public class BlockModelGenericChairPainted<T extends BlockLogic> extends BlockModelGeneric<T> {
+public class BlockModelGenericChairPainted<T extends BlockLogicRotatablePainted> extends BlockModelGenericRotatablePainted<T> {
 	public final StaticBlockModel[] colourModels = new StaticBlockModel[16];
 
 	public BlockModelGenericChairPainted(Block block) {
-		super(block, BlockModelDispatcher.loadDataModel("betterwithfurniture:block/chair"));
-
-		for (DyeColor color : DyeColor.blockOrderedColors()) {
-			this.colourModels[color.blockMeta] = BlockModelDispatcher.loadDataModel(
-				BetterWithFurniture.MOD_ID + ":block/chairs/%s".formatted(color.colorID)
-			).asModel();
-		}
+		super(block, "betterwithfurniture:block/chair", "block/chairs");
 	}
 
 	public boolean renderAttached(TessellatorGeneral tessellator, WorldSource worldSource, TilePosc tilePos, boolean cullFaces, @Nullable IconCoordinate overrideTexture) {
@@ -49,39 +44,5 @@ public class BlockModelGenericChairPainted<T extends BlockLogic> extends BlockMo
 				return this.getModel(worldSource, tilePos).renderAttached(this, tessellator, worldSource, tilePos, 0, 0, 0, (double) 0.0F, (double) 0.0F, (double) 0.0F, false, cullFaces, overrideTexture);
 			}
 		}
-	}
-
-	/*
-	public boolean renderAttached(@NotNull TessellatorGeneral tessellator, @NotNull WorldSource worldSource, @NotNull TilePosc tilePos, boolean cullFaces, @Nullable IconCoordinate overrideTexture) {
-		Direction direction = BlockLogicChest.getDirectionFromMeta(worldSource.getBlockData(tilePos));
-		switch (direction) {
-			case NORTH -> {
-				return this.getModel(worldSource, tilePos).renderAttached(this, tessellator, worldSource, tilePos, 0, 0, 0, (double)0.0F, (double)0.0F, (double)0.0F, false, cullFaces, overrideTexture);
-			}
-			case WEST -> {
-				return this.getModel(worldSource, tilePos).renderAttached(this, tessellator, worldSource, tilePos, 0, 1, 0, (double)0.0F, (double)0.0F, (double)0.0F, false, cullFaces, overrideTexture);
-			}
-			case EAST -> {
-				return this.getModel(worldSource, tilePos).renderAttached(this, tessellator, worldSource, tilePos, 0, 3, 0, (double)0.0F, (double)0.0F, (double)0.0F, false, cullFaces, overrideTexture);
-			}
-			case SOUTH -> {
-				return this.getModel(worldSource, tilePos).renderAttached(this, tessellator, worldSource, tilePos, 0, 2, 0, (double)0.0F, (double)0.0F, (double)0.0F, false, cullFaces, overrideTexture);
-			}
-			default -> {
-				return this.getModel(worldSource, tilePos).renderAttached(this, tessellator, worldSource, tilePos, 0, 0, 0, (double)0.0F, (double)0.0F, (double)0.0F, false, cullFaces, overrideTexture);
-			}
-		}
-	 }
-	 */
-
-	public @NotNull StaticBlockModel getModel(@NotNull WorldSource source, @NotNull TilePosc tilePosc) {
-		int data = source.getBlockData(tilePosc);
-		int color = (data >> 3) & 15;
-		return colourModels[color];
-	}
-
-	public @NotNull StaticBlockModel getModelFromData(int data) {
-		int color = data & 15;
-		return this.colourModels[color];
 	}
 }

@@ -21,20 +21,17 @@ import varianttombstones.betterwithfurniture.block.tileentity.TileEntityDrawers;
 public class BlockLogicDrawers extends BlockLogicRotatable {
    public BlockLogicDrawers(Block<?> block, Material material, @NotNull Supplier<TileEntity> tileEntity) {
       super(block, material);
-      block.withEntity(tileEntity);
+	  block.withEntity(tileEntity);
    }
 
    public boolean onInteracted(World world, TilePosc tilePos, Player player, @Nullable Side side, double xHit, double yHit) {
-      if (world.isClientSide) {
-         return true;
-      } else {
-         player.displayChestScreen(getInventory(world, tilePos), (double)tilePos.x(), (double)tilePos.y(), (double)tilePos.z());
-         return true;
-      }
+	   if (!world.isClientSide) {
+		   player.displayChestScreen(getInventory(world, tilePos), (double) tilePos.x(), (double) tilePos.y(), (double) tilePos.z());
+	   }
+	   return true;
    }
-   
+
    public static Container getInventory(World world, TilePosc tilePos) {
-      Container inventory = (Container)Objects.requireNonNull(world.getTileEntity(tilePos));
-      return inventory;
+	   return (Container)Objects.requireNonNull(world.getTileEntity(tilePos));
    }
 }

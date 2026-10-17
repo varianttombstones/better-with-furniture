@@ -30,5 +30,6 @@ public abstract class CreativeMenuContentsMixin {
 		list.add(new ItemStack(ModBlocks.CARPET_BLOCK, 1, painted(ModBlocks.CARPET_BLOCK).toMetadata(color)));
 		list.add(new ItemStack(ModBlocks.CHAIR_PAINTED, 1, painted(ModBlocks.CHAIR_PAINTED).toMetadata(color)));
 		list.add(new ItemStack(ModBlocks.TABLE_PAINTED, 1, painted(ModBlocks.TABLE_PAINTED).toMetadata(color)));
+		list.add(new ItemStack(ModBlocks.DRAWER_PAINTED, 1, painted(ModBlocks.DRAWER_PAINTED).toMetadata(color)));
 	}
 }
