@@ -67,8 +67,8 @@ public class ModRecipes {
 		for (DyeColor c : DyeColor.values())
 		{
 			carpets.add(new ItemStack(ModBlocks.CARPET_BLOCK, 1, c.blockMeta));
-			chairs.add(new ItemStack(ModBlocks.CHAIR_PAINTED, 1, c.blockMeta));
-			tables.add(new ItemStack(ModBlocks.TABLE_PAINTED, 1, c.blockMeta));
+			chairs.add(new ItemStack(ModBlocks.CHAIR_PAINTED, 1, c.blockMeta << 3));
+			tables.add(new ItemStack(ModBlocks.TABLE_PAINTED, 1, c.blockMeta << 3));
 		}
 
 		registerItemGroup("carpets", carpets);
