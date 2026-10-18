@@ -17,20 +17,20 @@ import org.jetbrains.annotations.Nullable;
 import org.useless.dragonfly.models.block.StaticBlockModel;
 import varianttombstones.betterwithfurniture.BetterWithFurniture;
 
-public class BlockModelGenericTablePainted<T extends BlockLogic> extends BlockModelGeneric<T> {
-	public final StaticBlockModel[] colourModels = new StaticBlockModel[16];
+public class BlockModelGenericPainted<T extends BlockLogic> extends BlockModelGeneric<T> {
+	public final StaticBlockModel[] colorModels = new StaticBlockModel[16];
 
-	public BlockModelGenericTablePainted(Block block) {
-		super(block, BlockModelDispatcher.loadDataModel("betterwithfurniture:block/table"));
+	public BlockModelGenericPainted(Block block, String defaultModel, String coloredModelsFolder) {
+		super(block, BlockModelDispatcher.loadDataModel(defaultModel));
 
 		for (DyeColor color : DyeColor.blockOrderedColors()) {
-			this.colourModels[color.blockMeta] = BlockModelDispatcher.loadDataModel(
-				BetterWithFurniture.MOD_ID + ":block/tables/%s".formatted(color.colorID)
+			this.colorModels[color.blockMeta] = BlockModelDispatcher.loadDataModel(
+				BetterWithFurniture.MOD_ID + ":" + coloredModelsFolder + "/%s".formatted(color.colorID)
 			).asModel();
 		}
 	}
 
 	public @NotNull StaticBlockModel getModelFromData(int data) {
-		return this.colourModels[data & 15];
+		return this.colorModels[data & 15];
 	}
 }

@@ -18,8 +18,10 @@ public class ModBlockRenderer {
 		dispatcher.addDispatch(new BlockModelGenericRotatablePainted<>(ModBlocks.CABINET_PAINTED, "betterwithfurniture:block/cabinet", "block/cabinets"));
 
         dispatcher.addDispatch(new BlockModelGeneric<>(ModBlocks.WOOD_TABLE_BLOCK, BlockModelDispatcher.loadDataModel("betterwithfurniture:block/table")));
-		dispatcher.addDispatch(new BlockModelGenericTablePainted<>(ModBlocks.TABLE_PAINTED));
+		dispatcher.addDispatch(new BlockModelGenericPainted<>(ModBlocks.TABLE_PAINTED, "betterwithfurniture:block/table", "block/tables"));
+
         dispatcher.addDispatch(new BlockModelGeneric<>(ModBlocks.COFFEE_TABLE_BLOCK, BlockModelDispatcher.loadDataModel("betterwithfurniture:block/coffee_table")));
+		dispatcher.addDispatch(new BlockModelGenericPainted<>(ModBlocks.COFFEE_TABLE_PAINTED, "betterwithfurniture:block/coffee_table", "block/coffee_tables"));
 
         dispatcher.addDispatch(new BlockModelGenericCarpet<>(ModBlocks.CARPET_BLOCK));
         dispatcher.addDispatch(new BlockModelGenericRotatable<>(ModBlocks.TRASH_CAN_BLOCK, BlockModelDispatcher.loadDataModel("betterwithfurniture:block/trashcan")));

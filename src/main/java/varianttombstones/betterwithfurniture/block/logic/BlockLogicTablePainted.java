@@ -20,9 +20,14 @@ public class BlockLogicTablePainted extends BlockLogicTable implements IPainted 
 	}
 
 	public void setColor(@NotNull World world, @NotNull TilePosc tilePos, @NotNull DyeColor color) {
-		int meta = world.getBlockData(tilePos);
-		world.setBlockTypeDataRaw(tilePos, ModBlocks.TABLE_PAINTED, meta);
-		world.setBlockData(tilePos, meta);
+		int meta = this.toMetadata(color);
+		if (this.isCoffeeTable) {
+			world.setBlockTypeDataRaw(tilePos, ModBlocks.COFFEE_TABLE_PAINTED, meta);
+		} else {
+			world.setBlockTypeDataRaw(tilePos, ModBlocks.TABLE_PAINTED, meta);
+		}
+
+		world.setBlockDataNotify(tilePos, meta);
 	}
 
 	public int getPlacedData(@Nullable Player player, @NotNull ItemStack itemStack, @NotNull World world, @NotNull TilePosc tilePos, @NotNull Side side, double xHit, double yHit) {
@@ -52,5 +57,13 @@ public class BlockLogicTablePainted extends BlockLogicTable implements IPainted 
 	@Override
 	public @NotNull String getLanguageKey(int meta) {
 		return super.getLanguageKey(meta) + "." + this.fromMetadata(meta).colorID;
+	}
+
+	public boolean isCubeShaped() {
+		return false;
+	}
+
+	public boolean isSolidRender() {
+		return false;
 	}
 }

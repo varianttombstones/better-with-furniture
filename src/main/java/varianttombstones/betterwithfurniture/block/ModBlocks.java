@@ -124,6 +124,14 @@ public class ModBlocks {
 			.setBlockSound(BlockSounds.WOOD)
 			.setTags(BlockTags.MINEABLE_BY_AXE)
 			.build("cabinetpainted", newBlockID(), b -> new BlockLogicDrawersPainted(b, Materials.WOOD, TileEntityCabinet::new));
+
+		COFFEE_TABLE_PAINTED = new BlockBuilder(BetterWithFurniture.MOD_ID)
+			.setResistance(2.0f)
+			.setHardness(.2f)
+			.setBlockSound(BlockSounds.WOOD)
+			.setTags(BlockTags.MINEABLE_BY_AXE)
+			.build("coffeetablepainted", newBlockID(), b -> new BlockLogicTablePainted(b, true));
+
 	}
 
     public static int newBlockID() {

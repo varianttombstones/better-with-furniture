@@ -65,6 +65,7 @@ public class ModRecipes {
 		List<ItemStack> tables = Registries.stackListOf(ModBlocks.WOOD_TABLE_BLOCK);
 		List<ItemStack> drawers = Registries.stackListOf(ModBlocks.CHEST_OF_DRAWERS_BLOCK);
 		List<ItemStack> cabinets = Registries.stackListOf(ModBlocks.CABINET_BLOCK);
+		List<ItemStack> coffeeTables = Registries.stackListOf(ModBlocks.COFFEE_TABLE_BLOCK);
 
 		for (DyeColor c : DyeColor.values())
 		{
@@ -80,6 +81,7 @@ public class ModRecipes {
 		registerItemGroup("tables", tables);
 		registerItemGroup("drawers", drawers);
 		registerItemGroup("cabinets", cabinets);
+		registerItemGroup("coffeetables", coffeeTables);
 	}
 
 	public static void initializeRecipes()
@@ -110,7 +112,7 @@ public class ModRecipes {
 
 		RecipeBuilder.Shaped(BetterWithFurniture.MOD_ID)
 			.setShape("xxx", "s#s")
-			.addInput('x', "minecraft:planks")
+			.addInput('x', Blocks.PLANKS_OAK)
 			.addInput('s', Items.STICK)
 			.create("coffeetable", new ItemStack(ModBlocks.COFFEE_TABLE_BLOCK, 2));
 
@@ -139,6 +141,13 @@ public class ModRecipes {
 				.addInput('x', Blocks.PLANKS_OAK_PAINTED, c.itemMeta)
 				.addInput('s', Items.STICK)
 				.create(colorFromBlockMeta(c.itemMeta).colorID + "_table", new ItemStack(ModBlocks.TABLE_PAINTED, 2, c.itemMeta));
+
+			RecipeBuilder.Shaped(BetterWithFurniture.MOD_ID)
+				.setShape("xxx", "s#s")
+				.addInput('x', Blocks.PLANKS_OAK_PAINTED, c.itemMeta)
+				.addInput('s', Items.STICK)
+				.create(colorFromBlockMeta(c.itemMeta).colorID + "_coffeetable", new ItemStack(ModBlocks.COFFEE_TABLE_PAINTED, 2, c.itemMeta));
+
 		}
 
 		// Register dyeing recipes
@@ -147,5 +156,6 @@ public class ModRecipes {
 		registerBlockDyeRecipes("table", "tables", ModBlocks.TABLE_PAINTED, ModBlocks.WOOD_TABLE_BLOCK, false);
 		registerBlockDyeRecipes("drawer", "drawers", ModBlocks.DRAWER_PAINTED, ModBlocks.CHEST_OF_DRAWERS_BLOCK, false);
 		registerBlockDyeRecipes("cabinet", "cabinets", ModBlocks.CABINET_PAINTED, ModBlocks.CABINET_BLOCK, false);
+		registerBlockDyeRecipes("coffeetable", "coffeetables", ModBlocks.COFFEE_TABLE_PAINTED, ModBlocks.COFFEE_TABLE_BLOCK, false);
 	}
 }
