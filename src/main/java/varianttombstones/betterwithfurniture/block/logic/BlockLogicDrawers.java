@@ -3,7 +3,9 @@ package varianttombstones.betterwithfurniture.block.logic;
 import java.util.Objects;
 import java.util.function.Supplier;
 
+import net.minecraft.core.block.BlockLogic;
 import net.minecraft.core.block.IPaintable;
+import net.minecraft.core.util.helper.Direction;
 import net.minecraft.core.util.helper.DyeColor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -19,7 +21,7 @@ import net.minecraft.core.world.World;
 import net.minecraft.core.world.pos.TilePosc;
 import varianttombstones.betterwithfurniture.block.ModBlocks;
 
-public class BlockLogicDrawers extends BlockLogicRotatable implements IPaintable {
+public class BlockLogicDrawers extends BlockLogicRotatable implements IPaintable, BlockLogic.MatcherDataEquivalency {
    public BlockLogicDrawers(Block<?> block, Material material, @NotNull Supplier<TileEntity> tileEntity) {
       super(block, material);
 	  block.withEntity(tileEntity);
@@ -38,21 +40,22 @@ public class BlockLogicDrawers extends BlockLogicRotatable implements IPaintable
 
 	@Override
 	public void setColor(@NotNull World world, @NotNull TilePosc tilePosc, @NotNull DyeColor dyeColor) {
-	   Block<?> paintedBlock = ModBlocks.DRAWER_PAINTED;
+		int meta = world.getBlockData(tilePosc);
 
-	   if (block == ModBlocks.CABINET_BLOCK)
-	   {
-		   paintedBlock = ModBlocks.CABINET_PAINTED;
-	   }
+		// I have to do this, which is a bit wacky because
+		// otherwise the block automatically flips when painted,
+		// strange, but this fixes it.
+		Direction direction = Direction.fromId(meta & 7).opposite();
+		int newMeta = BlockLogicRotatablePainted.setDirection(meta, direction);
+		if (block == ModBlocks.CABINET_BLOCK) {
+			world.setBlockTypeDataRaw(tilePosc, ModBlocks.CABINET_PAINTED, newMeta);
+			world.setBlockDataNotify(tilePosc, newMeta);
+			((BlockLogicRotatablePainted) ModBlocks.CABINET_PAINTED.getLogic()).setColor(world, tilePosc, dyeColor);
 
-	   int meta = world.getBlockData(tilePosc);
-	   world.setBlockTypeDataRaw(tilePosc, paintedBlock, meta);
-	   world.setBlockData(tilePosc, meta);
-
-	   if (block == ModBlocks.CABINET_PAINTED) {
-		   ((BlockLogicDrawersPainted) ModBlocks.CABINET_PAINTED.getLogic()).setColor(world, tilePosc, dyeColor);
-	   } else {
-		   ((BlockLogicDrawersPainted) ModBlocks.DRAWER_PAINTED.getLogic()).setColor(world, tilePosc, dyeColor);
-	   }
+		} else {
+			world.setBlockTypeDataRaw(tilePosc, ModBlocks.DRAWER_PAINTED, newMeta);
+			world.setBlockDataNotify(tilePosc, newMeta);
+			((BlockLogicDrawersPainted) ModBlocks.DRAWER_PAINTED.getLogic()).setColor(world, tilePosc, dyeColor);
+		}
 	}
 }

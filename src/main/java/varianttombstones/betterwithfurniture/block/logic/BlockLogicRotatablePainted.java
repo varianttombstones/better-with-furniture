@@ -23,6 +23,7 @@ public class BlockLogicRotatablePainted extends BlockLogicRotatable implements I
 		super(block, material);
 	}
 
+	@Override
 	public void setColor(@NotNull World world, @NotNull TilePosc tilePos, @NotNull DyeColor color) {
 		int data = world.getBlockData(tilePos);
 		int newMetaData = this.stripColorFromMetadata(data) | this.toMetadata(color) << 3;
