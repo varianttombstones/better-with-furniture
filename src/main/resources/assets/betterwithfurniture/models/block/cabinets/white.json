@@ -1,0 +1,11 @@
+{
+  "parent": "betterwithfurniture:block/cabinet",
+  "textures": {
+    "north": "betterwithfurniture:block/cabinet_front/white",
+    "south": "betterwithfurniture:block/logs/white",
+    "east": "betterwithfurniture:block/logs/white",
+    "west": "betterwithfurniture:block/logs/white",
+    "up": "minecraft:block/planks/white",
+    "down": "minecraft:block/planks/white"
+  }
+}

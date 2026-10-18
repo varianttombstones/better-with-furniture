@@ -1,0 +1,8 @@
+{
+  "parent": "betterwithfurniture:block/table",
+  "textures": {
+    "0": "minecraft:block/planks/pink",
+    "1": "betterwithfurniture:block/logs/pink",
+    "particle": "minecraft:block/planks/pink"
+  }
+}

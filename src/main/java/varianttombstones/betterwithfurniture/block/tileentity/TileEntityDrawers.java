@@ -120,6 +120,5 @@ public class TileEntityDrawers extends TileEntity implements Container {
             item.pickupDelay = 0;
          }
       }
-
    }
 }
