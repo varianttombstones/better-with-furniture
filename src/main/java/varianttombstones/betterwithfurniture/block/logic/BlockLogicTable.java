@@ -6,6 +6,7 @@ import net.minecraft.core.block.BlockLogicRotatable;
 import net.minecraft.core.block.IPaintable;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Materials;
+import net.minecraft.core.block.support.FullSupport;
 import net.minecraft.core.block.support.ISupport;
 import net.minecraft.core.block.support.PartialSupport;
 import net.minecraft.core.enums.EnumDropCause;
@@ -39,7 +40,7 @@ public class BlockLogicTable extends BlockLogic implements IPaintable {
 	}
 
 	public @NotNull ISupport getSupport(World world, TilePosc tilePos, Side side) {
-		return PartialSupport.INSTANCE;
+		return FullSupport.INSTANCE;
 	}
 
 	public void setColor(@NotNull World world, @NotNull TilePosc tilePos, @NotNull DyeColor color) {
