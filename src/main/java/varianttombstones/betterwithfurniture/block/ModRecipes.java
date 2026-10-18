@@ -64,19 +64,22 @@ public class ModRecipes {
 		List<ItemStack> chairs = Registries.stackListOf(ModBlocks.CHAIR_BLOCK);
 		List<ItemStack> tables = Registries.stackListOf(ModBlocks.WOOD_TABLE_BLOCK);
 		List<ItemStack> drawers = Registries.stackListOf(ModBlocks.CHEST_OF_DRAWERS_BLOCK);
+		List<ItemStack> cabinets = Registries.stackListOf(ModBlocks.CABINET_BLOCK);
 
 		for (DyeColor c : DyeColor.values())
 		{
 			carpets.add(new ItemStack(ModBlocks.CARPET_BLOCK, 1, c.blockMeta));
 			chairs.add(new ItemStack(ModBlocks.CHAIR_PAINTED, 1, c.blockMeta << 3));
 			tables.add(new ItemStack(ModBlocks.TABLE_PAINTED, 1, c.blockMeta << 3));
-			tables.add(new ItemStack(ModBlocks.DRAWER_PAINTED, 1, c.blockMeta << 3));
+			drawers.add(new ItemStack(ModBlocks.DRAWER_PAINTED, 1, c.blockMeta << 3));
+			cabinets.add(new ItemStack(ModBlocks.CABINET_PAINTED, 1, c.blockMeta << 3));
 		}
 
 		registerItemGroup("carpets", carpets);
 		registerItemGroup("chairs", chairs);
 		registerItemGroup("tables", tables);
 		registerItemGroup("drawers", drawers);
+		registerItemGroup("cabinets", cabinets);
 	}
 
 	public static void initializeRecipes()
@@ -136,12 +139,6 @@ public class ModRecipes {
 				.addInput('x', Blocks.PLANKS_OAK_PAINTED, c.itemMeta)
 				.addInput('s', Items.STICK)
 				.create(colorFromBlockMeta(c.itemMeta).colorID + "_table", new ItemStack(ModBlocks.TABLE_PAINTED, 2, c.itemMeta));
-
-			RecipeBuilder.Shaped(BetterWithFurniture.MOD_ID)
-				.setShape("xy","xy")
-				.addInput('x', Blocks.PLANKS_OAK_PAINTED, c.itemMeta)
-				.addInput('y', "minecraft:trapdoor_planks")
-				.create(colorFromBlockMeta(c.itemMeta).colorID + "_drawer", new ItemStack(ModBlocks.DRAWER_PAINTED, 3, c.itemMeta));
 		}
 
 		// Register dyeing recipes
@@ -149,5 +146,6 @@ public class ModRecipes {
 		registerBlockDyeRecipes("chair", "chairs", ModBlocks.CHAIR_PAINTED, ModBlocks.CHAIR_BLOCK, false);
 		registerBlockDyeRecipes("table", "tables", ModBlocks.TABLE_PAINTED, ModBlocks.WOOD_TABLE_BLOCK, false);
 		registerBlockDyeRecipes("drawer", "drawers", ModBlocks.DRAWER_PAINTED, ModBlocks.CHEST_OF_DRAWERS_BLOCK, false);
+		registerBlockDyeRecipes("cabinet", "cabinets", ModBlocks.CABINET_PAINTED, ModBlocks.CABINET_BLOCK, false);
 	}
 }

@@ -118,6 +118,12 @@ public class ModBlocks {
 			.setTags(BlockTags.MINEABLE_BY_AXE)
 			.build("drawerspainted", newBlockID(), b -> new BlockLogicDrawersPainted(b, Materials.WOOD, TileEntityDrawers::new));
 
+		CABINET_PAINTED = new BlockBuilder(BetterWithFurniture.MOD_ID)
+			.setResistance(2.0f)
+			.setHardness(.4f)
+			.setBlockSound(BlockSounds.WOOD)
+			.setTags(BlockTags.MINEABLE_BY_AXE)
+			.build("cabinetpainted", newBlockID(), b -> new BlockLogicDrawersPainted(b, Materials.WOOD, TileEntityCabinet::new));
 	}
 
     public static int newBlockID() {
